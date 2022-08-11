@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class SelenideGitTest {
@@ -21,8 +22,8 @@ public class SelenideGitTest {
     void navigateProject() {
         open("/selenide/selenide");
         $("#wiki-tab").click();
-        $("#wiki-body").shouldHave(text("Soft assertions"));
-        $(Selectors.byLinkText("Soft assertions")).click();
+        $("#wiki-pages-box li.wiki-more-pages-link button").click();
+        $("#wiki-pages-box").$(byText("SoftAssertions")).click();
         $("body").shouldHave(text("Using JUnit5"));
     }
 }
