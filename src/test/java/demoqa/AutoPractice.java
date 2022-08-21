@@ -1,9 +1,12 @@
-package testbox;
+package demoqa;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.conditions.Text;
 import com.codeborne.selenide.selector.ByText;
+import demoqa.page.RegistrationFormPage;
+import demoqa.page.components.Countries;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
@@ -13,16 +16,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Locale;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 
 public class AutoPractice {
-    String[] subjects = {"P.E.", "Maths", "History"};
-    String path = "src/test/resources/";
-    String dateOfBirth = "01.01.1991";
-    String parsedDate = LocalDate.parse(dateOfBirth, DateTimeFormatter.ofPattern("dd.MM.yyyy")).format(DateTimeFormatter.ofPattern("dd MMMM,yyyy", new Locale("en")));;
-
+    RegistrationFormPage registrationFormPage = new RegistrationFormPage();
 
     @BeforeAll
     static void configure() {
@@ -30,6 +28,13 @@ public class AutoPractice {
         Configuration.browserSize = "1920x1080";
     }
 
+    String[] subjects = {"P.E.", "Maths", "History"};
+    String path = "src/test/resources/";
+    String dateOfBirth = "01.01.1991";
+    String parsedDate = LocalDate.parse(dateOfBirth, DateTimeFormatter.ofPattern("dd.MM.yyyy")).format(DateTimeFormatter.ofPattern("dd MMMM,yyyy", new Locale("en")));
+
+
+    @Disabled
     @Test
     void fillForm() {
         open("/automation-practice-form");
@@ -60,6 +65,36 @@ public class AutoPractice {
         $(".modal-body").find(new ByText("Picture")).parent().lastChild().shouldHave(new Text("picture.jpg"));
         $(".modal-body").find(new ByText("Address")).parent().lastChild().shouldHave(new Text("New Address"));
         $(".modal-body").find(new ByText("State and City")).parent().lastChild().shouldHave(new Text("Haryana Karnal"));
+    }
 
+    @Test
+    void fillFormWithPageObjects() {
+        registrationFormPage.openPage()
+                .setFirstName("NewName")
+                .setLastName("NewLastName")
+                .setEmail("newmail@got.com")
+                .setGender("Other")
+                .setNumber("9999999999")
+                .setBirthDate("01", "January", "1991")
+                .setSubjects(new String[]{"Maths", "Computer science", "History"})
+                .setHobbies(new String[]{"Sports", "Music"})
+                .setPicture("src/test/resources/", "picture.jpg")
+                .setAddress("New Address")
+                .setCountry(Countries.COUNTRY1)
+                .setCity("Karnal");
+
+        registrationFormPage.submitButtonClick();
+
+        registrationFormPage.checkResultsTableVisible()
+                .checkResult("Student Name", "NewName NewLastName")
+                .checkResult("Student Email", "newmail@got.com")
+                .checkResult("Gender", "Other")
+                .checkResult("Mobile", "9999999999")
+                .checkResult("Date of Birth", "01 January,1991")
+                .checkResult("Subjects", "Maths, Computer science, History")
+                .checkResult("Hobbies", "Sports, Music")
+                .checkResult("Picture", "picture.jpg")
+                .checkResult("Address", "New Address")
+                .checkResult("State and City", Countries.COUNTRY1 + " Karnal");
     }
 }
