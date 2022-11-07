@@ -73,6 +73,9 @@ public class RegistrationFormPage {
 
     public RegistrationFormPage setBirthDate(String day, String month, String year) {
         dateOfBirthInput.click();
+        if (day.length() < 2) {
+            day = "0" + day;
+        }
         calendarComponent.setDate(day, month, year);
         return this;
     }
@@ -128,5 +131,13 @@ public class RegistrationFormPage {
         resultsModal.checkResult(key, value);
 
         return this;
+    }
+
+    public String getArrayAsString(String[] array) {
+        String sub = "";
+        for (int i=0; i < array.length; i++) {
+            sub = sub + array[i] + ", ";
+        }
+        return sub.substring(0, sub.length() - 2);
     }
 }
