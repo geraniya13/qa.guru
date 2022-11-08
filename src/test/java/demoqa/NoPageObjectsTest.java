@@ -2,7 +2,6 @@ package demoqa;
 
 import com.codeborne.selenide.conditions.Text;
 import com.codeborne.selenide.selector.ByText;
-import demoqa.TestBase;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
@@ -16,7 +15,7 @@ import java.util.Locale;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class NoPageObjects extends TestBase {
+public class NoPageObjectsTest extends TestBase {
     String[] subjects = {"P.E.", "Maths", "History"};
     String path = "src/test/resources/";
     String dateOfBirth = "01.01.1991";

@@ -1,10 +1,10 @@
 package demoqa.page.components;
 
 public enum Countries {
-    COUNTRY1 ("Haryana"),
-    COUNTRY2 ("NCR"),
-    COUNTRY3 ("Uttar Pradesh"),
-    COUNTRY4 ("Rajasthan");
+    HARYANA ("Haryana"),
+    NCR ("NCR"),
+    UTTAR_PRADESH ("Uttar Pradesh"),
+    RAJASTHAN ("Rajasthan");
 
     private String title;
 
