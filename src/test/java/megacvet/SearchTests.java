@@ -51,6 +51,5 @@ public class SearchTests extends TestBase {
         $("#calc_for_index div.minicalc-body div.param-color button").shouldNotBe(disabled).click();
         $$("div.flower").find(text(flower + " " + color)).find(".flower_image").click();
         $("div.itog span").shouldHave(text(price * pack + ""));
-        Thread.sleep(5000);
     }
 }
