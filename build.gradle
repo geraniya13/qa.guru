@@ -12,11 +12,11 @@ repositories {
 dependencies {
     testImplementation(
             'org.junit.jupiter:junit-jupiter:5.9.0',
-            'com.codeborne:selenide:6.6.6',
-            'org.slf4j:slf4j-simple:1.7.36',
+            'com.codeborne:selenide:6.9.0',
+            'org.slf4j:slf4j-simple:2.0.3',
             'com.github.javafaker:javafaker:1.0.2'
     )
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
 }
 
 test {
