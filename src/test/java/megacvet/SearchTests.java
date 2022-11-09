@@ -19,7 +19,7 @@ public class SearchTests extends TestBase {
 
     @CsvSource(value = {"День рождения,Пион", "Свидание,Роза", "Юбилей,Ирис"})
     @ParameterizedTest(name = "На {0} предлагается {1}")
-    void OfferingTest(String event, String flower) {
+    void offeringTest(String event, String flower) {
         open("/");
         $("a[href='https://megacvet24.ru/povod/']").hover();
         $$("li.menu_title-3").find(text(event)).lastChild().click();
@@ -28,23 +28,23 @@ public class SearchTests extends TestBase {
 
     @CsvFileSource(files = "src/test/resources/goods.csv")
     @ParameterizedTest(name = "На странице с декором {0} отображается элементов {1}")
-    void QuantityTest(String deco, String quantity) {
+    void quantityTest(String deco, String quantity) {
         open("/dekor-dlya-buketov/");
         $$("div.catalog_filter ul li").find(text(deco)).lastChild().click();
         $$("img.img-responsive").shouldHave(size(Integer.parseInt(quantity) + 1));
     }
 
-    static Stream<Arguments> CalculatorTest() {
+    static Stream<Arguments> calculatorTest() {
         return Stream.of(
-                Arguments.of("Гербера", 179, "Малиновая", 30),
-                Arguments.of("Калла", 299, "Белая", 10),
-                Arguments.of("Хризантема", 199, "Карамельная", 10)
+                Arguments.of("Гербера", "Малиновая", 179,  30),
+                Arguments.of("Калла", "Белая", 299, 10),
+                Arguments.of("Хризантема", "Карамельная", 199, 10)
         );
     }
 
     @MethodSource
-    @ParameterizedTest(name = "Общая стоимость для цветка {0} {2} с ценой {1} рублей за штуку в упаковке из {3} штук рассчитывается верно")
-    void CalculatorTest(String flower, int price, String color, int pack) throws InterruptedException {
+    @ParameterizedTest(name = "Общая стоимость для цветка {0} {1} с ценой {2} рублей за штуку в упаковке из {3} штук рассчитывается верно")
+    void calculatorTest(String flower, String color, int price, int pack) throws InterruptedException {
         open("/");
         $("div.minicalc-body a.choose").click();
         $$("div.flower").find(text(flower)).find(".flower_image").click();
