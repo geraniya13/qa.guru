@@ -1,0 +1,15 @@
+{
+  "name": "Remedy",
+  "age": 3,
+  "color": "Multi",
+  "breed": "Sphynx",
+  "male": false,
+  "measures": {
+    "height": 52.3,
+    "weight": 4.89
+  },
+  "children": [
+    "Bane",
+    "Fobos"
+  ]
+}
