@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Fri Nov 11 18:11:54 GMT 2022","Fri Nov 11 18:11:56 GMT 2022","1975","","allure.IssueSearchTests","","allure.IssueSearchTests","selenideSearchTest","selenideSearchTest()",""
+"passed","Fri Nov 11 18:11:56 GMT 2022","Fri Nov 11 18:11:58 GMT 2022","2112","","allure.IssueSearchTests","","allure.IssueSearchTests","annotatedSearchTestWithAttachment","annotatedSearchTestWithAttachment()",""
+"passed","Fri Nov 11 18:11:47 GMT 2022","Fri Nov 11 18:11:54 GMT 2022","7392","","allure.IssueSearchTests","","allure.IssueSearchTests","lambdaStepSearchTestWithAttachment","lambdaStepSearchTestWithAttachment()",""
