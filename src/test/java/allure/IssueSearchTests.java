@@ -5,8 +5,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.exist;
-import static com.codeborne.selenide.Selectors.withText;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.attachment;
 import static io.qameta.allure.Allure.step;
@@ -27,7 +26,7 @@ public class IssueSearchTests extends TestBase {
         $(".header-search-input").submit();
         $(linkText("eroshenkoam/allure-example")).click();
         $("#issues-tab").click();
-        $(withText("#80")).should(exist);
+        $("#issue_81_link").shouldHave(text("issue_to_test_allure_report"));
     }
 
     @Test
@@ -47,7 +46,7 @@ public class IssueSearchTests extends TestBase {
             $("#issues-tab").click();
         });
         step("Checking issue " + issue + " name", () -> {
-            $(withText("#80")).should(exist);
+            $("#issue_81_link").shouldHave(text(issue));
             attachment("Result", webdriver().driver().source());
         });
     }

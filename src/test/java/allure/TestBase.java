@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 
 public class TestBase {
     static final String repo = "eroshenkoam/allure-example";
-    static final String issue = "smth";
+    static final String issue = "issue_to_test_allure_report";
 
     WebSteps webSteps = new WebSteps();
 
