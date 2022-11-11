@@ -1,6 +1,7 @@
 package files;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 
@@ -9,16 +10,19 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class FileParsingTests extends TestBase {
 
+    @Disabled
     @BeforeEach
     void prepareFiles() {
         testData.getFileFromZip(classLoader, "files.zip");
     }
 
+    @Disabled
     @Test
     void pdfTest() {
         assertThat(testData.pdf.text).contains("RML Example");
     }
 
+    @Disabled
     @Test
     void xlsTest() {
         assertThat(testData.xls.excel
@@ -28,6 +32,7 @@ public class FileParsingTests extends TestBase {
                 .getStringCellValue()).contains("Dulce");
     }
 
+    @Disabled
     @Test
     void csvTest() {
         assertThat(testData.csv.get(1)).contains("150000", "2016-01-01", "Chris Riley", "trailhead9.ub20k5i9t8ou@example.com");
