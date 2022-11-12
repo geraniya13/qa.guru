@@ -1,5 +1,6 @@
 package demoqaProps;
 
+import demoqaProps.page.RegistrationFormPage;
 import demoqaProps.page.components.Countries;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -13,6 +14,7 @@ public class AutoPracticeTest extends TestBase {
     @Tag("withProperties")
     @DisplayName("Test with properties")
     void fillFormWithPageObjects() {
+        RegistrationFormPage registrationFormPage = new RegistrationFormPage();
         step("Opening main page", () -> {
             registrationFormPage.openPage();
         });
