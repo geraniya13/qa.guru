@@ -14,7 +14,6 @@ public class AutoPracticeTest extends TestBase {
     @Tag("withProperties")
     @DisplayName("Test with properties")
     void fillFormWithPageObjects() {
-        RegistrationFormPage registrationFormPage = new RegistrationFormPage();
         step("Opening main page", () -> {
             registrationFormPage.openPage();
         });

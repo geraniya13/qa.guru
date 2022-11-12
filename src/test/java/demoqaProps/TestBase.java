@@ -13,7 +13,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 
 public class TestBase {
-//    RegistrationFormPage registrationFormPage = new RegistrationFormPage();
+    RegistrationFormPage registrationFormPage = new RegistrationFormPage();
     Faker faker = new Faker();
     TestData testData = new TestData();
     static String remoteUrl = System.getProperty("remote_url");
