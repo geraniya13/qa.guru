@@ -22,7 +22,7 @@ public class NoPageObjectsTest extends TestBase {
     String parsedDate = LocalDate.parse(dateOfBirth, DateTimeFormatter.ofPattern("dd.MM.yyyy")).format(DateTimeFormatter.ofPattern("dd MMMM,yyyy", new Locale("en")));
 
 
-    @Disabled
+    @Disabled("Not relevant")
     @Test
     void fillForm() {
         open("/automation-practice-form");
