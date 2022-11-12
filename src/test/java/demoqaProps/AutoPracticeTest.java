@@ -1,6 +1,7 @@
 package demoqaProps;
 
 import demoqaProps.page.components.Countries;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -10,6 +11,7 @@ import static io.qameta.allure.Allure.step;
 public class AutoPracticeTest extends TestBase {
     @Test
     @Tag("withProperties")
+    @DisplayName("Test with properties")
     void fillFormWithPageObjects() {
         step("Opening main page", () -> {
             registrationFormPage.openPage();
