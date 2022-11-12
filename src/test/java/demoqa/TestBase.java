@@ -21,18 +21,8 @@ public class TestBase {
         SelenideLogger.addListener("allureSelenide", new AllureSelenide());
 
         DesiredCapabilities dc = new DesiredCapabilities();
-//        dc.setCapability("browserName", "chrome");
-//        dc.setCapability("browserVersion", "100.0");
         dc.setCapability("enableVNC", true);
         dc.setCapability("enableVideo", true);
-//        dc.setCapability("selenoid:options", Map.<String, Object>of(
-//                "enableVNC", true,
-//                "enableVideo", true
-//        ));
-//        RemoteWebDriver driver = new RemoteWebDriver(
-//                URI.create("http://selenoid:4444/wd/hub").toURL(),
-//                dc
-//        );
         Configuration.browserCapabilities = dc;
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
