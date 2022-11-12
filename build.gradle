@@ -6,6 +6,11 @@ plugins {
 group 'org.example'
 version '1.0-SNAPSHOT'
 
+compileJava {
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+}
+
 allure {
     report {
         version.set("2.19.0")
@@ -43,6 +48,11 @@ dependencies {
 test {
     useJUnitPlatform()
     systemProperties(System.getProperties())
+}
+
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+    useJUnitPlatform()
 }
 
 tasks.withType(JavaCompile) {
