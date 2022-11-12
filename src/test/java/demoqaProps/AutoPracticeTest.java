@@ -1,9 +1,6 @@
-package demoqa;
+package demoqaProps;
 
-import com.codeborne.selenide.logevents.SelenideLogger;
-import demoqa.page.components.Countries;
-import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.BeforeEach;
+import demoqaProps.page.components.Countries;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +9,7 @@ import static io.qameta.allure.Allure.step;
 
 public class AutoPracticeTest extends TestBase {
     @Test
-    @Tag("noProperties")
+    @Tag("withProperties")
     void fillFormWithPageObjects() {
         step("Opening main page", () -> {
             registrationFormPage.openPage();
