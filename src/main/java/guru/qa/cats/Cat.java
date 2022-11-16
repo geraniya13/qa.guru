@@ -1,4 +1,4 @@
-package cats;
+package guru.qa.cats;
 
 import java.io.BufferedReader;
 import java.io.IOException;

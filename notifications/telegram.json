@@ -5,11 +5,11 @@
     "comment": "test",
     "reportLink": "",
     "language": "en",
-    "allureFolder": "build/allure-report/",
+    "allureFolder": "build/reports/allure-report/allureReport/",
     "enableChart": true
   },
   "telegram": {
-    "token": "5710535378:AAHCZhuBXJBOn6al9ynxxD6eD-BV3omP118",
+    "token": "-",
     "chat": "-1001513148698",
     "replyTo": ""
   }

@@ -1,10 +1,10 @@
-package cats;
+package guru.qa.cats;
 
 public class First {
         Cat strayCat = new Cat("Red", true);
         Cat othersCat = new Cat("White", "Dick", true);
         Cat myCat = new Cat(5, "July", false, "Black");
-//        ArrayList<cats.Cat> catsList = new ArrayList<>();
+//        ArrayList<guru.qa.cats.Cat> catsList = new ArrayList<>();
 //        catsList.add(strayCat);
 //        catsList.add(othersCat);
 //        catsList.add(myCat);

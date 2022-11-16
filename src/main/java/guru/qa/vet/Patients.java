@@ -1,4 +1,4 @@
-package vet;
+package guru.qa.vet;
 
 import java.util.ArrayList;
 

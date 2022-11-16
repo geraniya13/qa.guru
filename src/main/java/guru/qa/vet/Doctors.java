@@ -1,4 +1,4 @@
-package vet;
+package guru.qa.vet;
 
 public class Doctors {
     static String[] actualDoctors = {"Black", "White", "Brown"};
