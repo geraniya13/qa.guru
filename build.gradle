@@ -13,7 +13,7 @@ allure {
     adapter {
         aspectjWeaver.set(true)
         frameworks {
-            junit5{
+            junit5 {
                 adapterVersion.set("2.19.0")
             }
         }
@@ -56,13 +56,19 @@ tasks.withType(JavaCompile) {
 }
 
 task properties_test(type: Test) {
-    useJUnitPlatform{
+    useJUnitPlatform {
         includeTags "withProperties"
     }
 }
 
 task no_properties_test(type: Test) {
-    useJUnitPlatform{
+    useJUnitPlatform {
         includeTags "noProperties"
+    }
+}
+
+task web_shop(type: Test) {
+    useJUnitPlatform {
+        includeTags "DemoWebShop"
     }
 }
