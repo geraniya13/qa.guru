@@ -1,6 +1,7 @@
 package api.demoWebShop;
 
 
+import api.demoWebShop.helpers.AllureRestAssuredFilter;
 import io.restassured.RestAssured;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
@@ -27,7 +28,7 @@ public class DemoWebShopTests extends TestBase {
     void registerAndChangeInfoTest() {
         step("Register by API and get cookies", () -> {
             step("Open registration page and save cookies", () -> {
-                Response response = get("/register");
+                Response response = given().filter(AllureRestAssuredFilter.withCustomTemplates()).get("/register");
                 Cookies allDetailedCookies = response.getDetailedCookies();
                 testData.setRequestVerificationTokenToRegister(testData.getVerificationTokenFromBody(response.getBody().asPrettyString()));
                 testData.setNopCustomerValueCookie(allDetailedCookies.getValue("Nop.customer"));
@@ -35,6 +36,7 @@ public class DemoWebShopTests extends TestBase {
             });
             step("Register with cookies", () -> {
                 testData.setNopCommerceCookie(given().config(RestAssured.config().redirect(redirectConfig().followRedirects(false)))
+                        .filter(AllureRestAssuredFilter.withCustomTemplates())
                         .log().uri()
                         .log().body()
                         .contentType("application/x-www-form-urlencoded")
@@ -70,7 +72,7 @@ public class DemoWebShopTests extends TestBase {
         });
         step("Edit user info by API", () -> {
             step("Open account info page", () -> {
-                Response response = given()
+                Response response = given().filter(AllureRestAssuredFilter.withCustomTemplates())
                         .cookie("Nop.customer", testData.getNopCustomerValueCookie())
                         .cookie("NOPCOMMERCE.AUTH", testData.getNopCommerceCookie())
                         .when()
@@ -80,6 +82,7 @@ public class DemoWebShopTests extends TestBase {
             });
             step("Change account info", () -> {
                 given().config(RestAssured.config().redirect(redirectConfig().followRedirects(false)))
+                        .filter(AllureRestAssuredFilter.withCustomTemplates())
                         .log().uri()
                         .log().body()
                         .log().headers()
