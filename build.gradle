@@ -37,7 +37,8 @@ dependencies {
             'com.fasterxml.jackson.core:jackson-databind:2.14.0',
             'io.qameta.allure:allure-selenide:2.19.0',
             'io.rest-assured:rest-assured:5.2.0',
-            "io.qameta.allure:allure-rest-assured:2.19.0"
+            "io.qameta.allure:allure-rest-assured:2.19.0",
+            "org.aeonbits.owner:owner:1.0.12"
     )
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
 }
