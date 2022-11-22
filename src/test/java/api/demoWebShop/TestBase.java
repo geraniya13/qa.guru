@@ -17,7 +17,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 public class TestBase {
     TestData testData = new TestData();
     Faker faker = new Faker();
-//    static String remote = System.getProperty("remote");
     static DWSConfig config = ConfigFactory.create(DWSConfig.class, System.getProperties());
 
     @BeforeAll
@@ -28,10 +27,7 @@ public class TestBase {
         Configuration.browser = config.browser();
         Configuration.browserVersion = config.browserVersion();
         Configuration.browserSize = config.browserSize();
-//        Configuration.browser = System.getProperty("browser_name", "chrome");
-//        Configuration.browserVersion = System.getProperty("browser_version", "100.0");
-//        Configuration.browserSize = System.getProperty("browser_size", "1920x1080");
-        if (config.remoteUrl() != null) {
+        if (!config.remoteUrl().equals("")) {
             DesiredCapabilities dc = new DesiredCapabilities();
             dc.setCapability("enableVNC", true);
             dc.setCapability("enableVideo", true);
@@ -53,7 +49,7 @@ public class TestBase {
         Attach.saveScreenshot("Result image");
         Attach.savePageSource();
         Attach.saveBrowserConsoleLogs();
-        if (config.remoteUrl() != null) {
+        if (!config.remoteUrl().equals("")) {
             Attach.saveVideo();
         }
     }
